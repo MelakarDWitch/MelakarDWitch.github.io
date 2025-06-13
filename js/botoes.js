@@ -7,13 +7,13 @@ export default class Botoes extends Phaser.Physics.Arcade.Sprite {
         this.donut = [];
     }
     static preload(scene) {
-        scene.load.image('botaovermelho', 'source/_img/teclaVermelho2.png');
+        scene.load.image('botaovermelho', 'source/img/teclaVermelho2.png');
 
-        scene.load.image('botaoverde', 'source/_img/teclaVerde2.png');
+        scene.load.image('botaoverde', 'source/img/teclaVerde2.png');
 
-        scene.load.image('botaoamarelo', 'source/_img/teclaAmarelo2.png');
+        scene.load.image('botaoamarelo', 'source/img/teclaAmarelo2.png');
 
-        scene.load.image('botaoazul', 'source/_img/teclaAzul2.png');
+        scene.load.image('botaoazul', 'source/img/teclaAzul2.png');
     }
     createNote(cor) {
         // Randomly place the donuts in the world

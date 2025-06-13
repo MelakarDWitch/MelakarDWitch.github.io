@@ -12,10 +12,10 @@ export default class menuInicial extends Phaser.Scene {
         //teclas, discos musica, imagem backgroundssss, ICONES,
         Botoes.preload(this);
         this.load.audio('musica', 'source/musicas/Coasting.mp3');
-        //this.load.image('fundoDaImagem','source/_img/estudio.');
+        //this.load.image('fundoDaImagem','source/img/estudio.');
         this.load.json('beatmap', 'js/objetos/coasting2.json');
-        this.load.image('teste', 'source/_img/discoVerde.png');
-        //this.load.image('gameover', 'source/_img/gameover.png');
+        this.load.image('teste', 'source/img/discoVerde.png');
+        //this.load.image('gameover', 'source/img/gameover.png');
        
     }
     spawnNota(notas) {
@@ -49,35 +49,35 @@ export default class menuInicial extends Phaser.Scene {
         if(contagemErros==0){
             //mudar palheta para a inteira
             
-            palhetaRef.innerHTML = '<img src="source/_img/palhetaInteira.png">';
+            palhetaRef.innerHTML = '<img src="source/img/palhetaInteira.png">';
             
         }
         if(contagemErros>=1 && contagemErros<=3){
             //mudar palheta quebrada 1
-             palhetaRef.innerHTML = '<img src="source/_img/palheta1.png">'; 
+             palhetaRef.innerHTML = '<img src="source/img/palheta1.png">'; 
             }
         if(contagemErros>=4 && contagemErros<=6){
             //mudar palheta quebrada 2
         
-            palhetaRef.innerHTML = '<img src="source/_img/palheta2.png">';
+            palhetaRef.innerHTML = '<img src="source/img/palheta2.png">';
         
         }
         if(contagemErros>=7 && contagemErros<=9){
             //mudar palheta quebrada 3
         
-            palhetaRef.innerHTML = '<img src="source/_img/palheta3.png">';
+            palhetaRef.innerHTML = '<img src="source/img/palheta3.png">';
         
         }
         if(contagemErros>=10 && contagemErros<=12){
             //mudar palheta quebrada 4
         
-            palhetaRef.innerHTML = '<img src="source/_img/palheta4.png">';
+            palhetaRef.innerHTML = '<img src="source/img/palheta4.png">';
 
         }
         if(contagemErros>=13 && contagemErros<=16){
             //mudar palheta quebrada 5
         
-            palhetaRef.innerHTML = '<img src="source/_img/palheta5.png">';
+            palhetaRef.innerHTML = '<img src="source/img/palheta5.png">';
         
         }
 
@@ -187,7 +187,7 @@ export default class menuInicial extends Phaser.Scene {
 
         //Verde
         if (Phaser.Input.Keyboard.JustDown(this.keyD)) {
-            this.posXVerde.style = "background-image: url(source/_img/teclaVerde3.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXVerde.style = "background-image: url(source/img/teclaVerde3.png);background-repeat:no-repeat;background-size:100% 100%;";
 
             const donutVerde = this.spawnerVerde.donut[this.missCount[0]];
             // Certifica-se que o donut existe (foi spawnado)
@@ -216,12 +216,12 @@ export default class menuInicial extends Phaser.Scene {
             }
         }
         if (Phaser.Input.Keyboard.JustUp(this.keyD)) {
-            this.posXVerde.style = "background-image: url(source/_img/teclaVerde1.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXVerde.style = "background-image: url(source/img/teclaVerde1.png);background-repeat:no-repeat;background-size:100% 100%;";
 
         }
         //Vermelho. F
         if (Phaser.Input.Keyboard.JustDown(this.keyF)) {
-            this.posXVermelho.style = "background-image: url(source/_img/teclaVermelho3.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXVermelho.style = "background-image: url(source/img/teclaVermelho3.png);background-repeat:no-repeat;background-size:100% 100%;";
             const donutVermelho = this.spawnerVermelho.donut[this.missCount[1]];
             if (donutVermelho) {
                 const distanciaVermelha = Phaser.Math.Distance.Between(donutVermelho.x, donutVermelho.y, this.xVermelho, 737);
@@ -243,13 +243,13 @@ export default class menuInicial extends Phaser.Scene {
             }
         }
         if (Phaser.Input.Keyboard.JustUp(this.keyF)) {
-            this.posXVermelho.style = "background-image: url(source/_img/teclaVermelho1.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXVermelho.style = "background-image: url(source/img/teclaVermelho1.png);background-repeat:no-repeat;background-size:100% 100%;";
 
         }
 
         //Amarelo.J
         if (Phaser.Input.Keyboard.JustDown(this.keyJ)) {
-            this.posXAmarelo.style = "background-image: url(source/_img/teclaAmarelo3.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXAmarelo.style = "background-image: url(source/img/teclaAmarelo3.png);background-repeat:no-repeat;background-size:100% 100%;";
             const donutAmarelo = this.spawnerAmarelo.donut[this.missCount[2]];
             if (donutAmarelo) {
                 const distanciaAmarelo = Phaser.Math.Distance.Between(donutAmarelo.x, donutAmarelo.y, this.xAmarelo, 737);
@@ -269,12 +269,12 @@ export default class menuInicial extends Phaser.Scene {
                 }
             }
         } if (Phaser.Input.Keyboard.JustUp(this.keyJ)) {
-            this.posXAmarelo.style = "background-image: url(source/_img/teclaAmarelo1.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXAmarelo.style = "background-image: url(source/img/teclaAmarelo1.png);background-repeat:no-repeat;background-size:100% 100%;";
 
         }
         //Azul.K
         if (Phaser.Input.Keyboard.JustDown(this.keyK)) {
-            this.posXAzul.style = "background-image: url(source/_img/teclaAzul3.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXAzul.style = "background-image: url(source/img/teclaAzul3.png);background-repeat:no-repeat;background-size:100% 100%;";
             const donutAzul = this.spawnerAzul.donut[this.missCount[3]];
             if (donutAzul) {
                 const distanciaAzul = Phaser.Math.Distance.Between(donutAzul.x, donutAzul.y, this.xAzul, 737);
@@ -296,7 +296,7 @@ export default class menuInicial extends Phaser.Scene {
             
         }
         if (Phaser.Input.Keyboard.JustUp(this.keyK)) {
-            this.posXAzul.style = "background-image: url(source/_img/teclaAzul1.png);background-repeat:no-repeat;background-size:100% 100%;";
+            this.posXAzul.style = "background-image: url(source/img/teclaAzul1.png);background-repeat:no-repeat;background-size:100% 100%;";
 
 
         }

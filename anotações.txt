@@ -1,0 +1,44 @@
+SEXTA FEIRA HTML GET ELEMENT PRA FAZER O PAUSE DO jogo
+
+// TODO: ajustar tamanho do jogo conforme tamanho tela 
+//vetores como solução ´para problema de colisão? colocar os botoes dentro de um vetor
+
+/// 0 = nao spawm nota,
+//  1 = spawna nota
+// Verde, vermelho, Amarelo, Azul
+primeiro numero esta em milezimos de segundo
+
+
+implementar de todas as teclas em MenuInicial.js;
+// Certifica-se que o donut existe (foi spawnado)
+            if (donutVerde) {
+                const distancia = Phaser.Math.Distance.Between(donutVerde.x, donutVerde.y, this.xVerde, 737);
+                //Se a
+                if (distancia <= 50) {
+                    // Deleta o donut
+
+musicas:
+    Coasting - Darren Korb;
+    duração 4:00
+
+    M.O.O.N. - 'Hydrogen'
+    duração 4:51
+
+    Disco Disaster - Danny Baranowsky
+    duração 3:11
+
+    Gostava Tanto De Você - Tim maia
+    duração 4:16
+
+    Da lama ao caos - chico science & nação zumbi
+    duração 4:31
+
+
+
+Musicas SUGESTÃO:
+    jorge maravilho - chico buarque
+    duração 2:04
+
+    Lap of Luxury - Darren Korb
+    duração 2:21
+    

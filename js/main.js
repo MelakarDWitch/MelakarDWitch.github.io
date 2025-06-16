@@ -12,7 +12,7 @@ const config = {
         
         default: 'arcade',
         arcade:{
-            debug:true,
+            debug:false,
         }
     },
     scene:[menuInicial]

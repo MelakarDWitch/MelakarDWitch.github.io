@@ -1,6 +1,7 @@
 import time
 import keyboard
-import pygame
+import sys
+
 import json
 
 
@@ -55,7 +56,7 @@ def sair(e):
     pygame.mixer.music.stop()
     keyboard.unhook_all()  # Remove todos os ganchos
     # convert into JSON:
-    with open('js/objetos/coasting2.json', 'w') as f:
+    with open('js/objetos/coasting3.json', 'w') as f:
         json.dump(beatmap, f)
     exit()
 

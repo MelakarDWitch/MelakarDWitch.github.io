@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head> 
+    <title>GuitaRRero</title>
+</head>
 
 <body>
     <img id="titulo" src="source/img/titulo.png">
     <div id="buttonContainer">
         <a href="index.html"><button id="botaoIniciar" onclick="IniciarJogo()"></button></a>
-        <button id="botaoConfiguracoes"></button>
-        <button id="botaoCreditos"> <img src="source/img/saida.png"> </button>
-        <a href="beatmapForm.html"><button id="BeatmapForm"> <img src=""> </button></a>
+
+
     </div>
     <style>
         html {
@@ -27,32 +26,41 @@
         #buttonContainer {
             position: absolute;
             margin-top: 10%;
-            margin-left: 10%;
-            width: 300px;
-            height: 200px;
+            margin-left: 5%;
+            width: 600px;
+            height: 400px;
         }
 
         #botaoIniciar {
+            background-color: rgba(0, 0, 0, 0);
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
             background-image: url("source/img/botaoRock1.png");
 
         }
 
         #botaoIniciar:hover {
+            background-color: rgba(red, green, blue, 0);
             background-image: url("source/img/botaoRock2.png");
         }
-        #botaoConfiguracoes{
+
+        #botaoConfiguracoes {
             background-image: url("source/img/config1.png");
         }
+
         #botaoConfiguracoes:hover {
             background-image: url("source/img/config3.png");
         }
 
-       #botaoCreditos {}
-       
+     
+
         button {
             width: 100%;
-            height: 130px;
-            margin-top: 30px;
+            height: 120px;
+            margin-top: 20px;
             background-repeat: no-repeat;
             background-size: 100% 100%;
         }
@@ -60,7 +68,8 @@
         img {
             height: 100px;
         }
-        #titulo{
+
+        #titulo {
             position: fixed;
             margin-top: 50px;
             margin-left: 150px;
@@ -68,7 +77,7 @@
             height: 20%;
         }
     </style>
-    
+
 </body>
 
 </html>

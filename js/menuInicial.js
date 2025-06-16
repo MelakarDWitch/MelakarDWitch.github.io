@@ -16,7 +16,7 @@ export default class menuInicial extends Phaser.Scene {
         this.load.json('beatmap', 'js/objetos/coasting2.json');
         this.load.image('teste', 'source/img/discoVerde.png');
         //this.load.image('gameover', 'source/img/gameover.png');
-       
+
     }
     spawnNota(notas) {
         const notasSplit = notas.split(",");
@@ -35,63 +35,87 @@ export default class menuInicial extends Phaser.Scene {
         }
 
     }
-    
-    verificaPalheta(){
+
+    verificaPalheta() {
         let contagemErros = this.missCount[3] + this.missCount[2] + this.missCount[1] + this.missCount[0] - this.contagemErrosAcertos;
         let palhetaRef = document.getElementById("palheta");
         console.log(contagemErros)
-        if(contagemErros<0){
+        if (contagemErros < 0) {
             //mander o numero em 0 e nao ficar negativo
-           contagemErros = 0;
-           this.contagemErrosAcertos = this.missCount[3] + this.missCount[2] + this.missCount[1] + this.missCount[0];
-            
+            contagemErros = 0;
+            this.contagemErrosAcertos = this.missCount[3] + this.missCount[2] + this.missCount[1] + this.missCount[0];
+
         }
-        if(contagemErros==0){
+        if (contagemErros == 0) {
             //mudar palheta para a inteira
-            
+
             palhetaRef.innerHTML = '<img src="source/img/palhetaInteira.png">';
-            
+
         }
-        if(contagemErros>=1 && contagemErros<=3){
+        if (contagemErros >= 1 && contagemErros <= 3) {
             //mudar palheta quebrada 1
-             palhetaRef.innerHTML = '<img src="source/img/palheta1.png">'; 
-            }
-        if(contagemErros>=4 && contagemErros<=6){
+            palhetaRef.innerHTML = '<img src="source/img/palheta1.png">';
+        }
+        if (contagemErros >= 4 && contagemErros <= 6) {
             //mudar palheta quebrada 2
-        
+
             palhetaRef.innerHTML = '<img src="source/img/palheta2.png">';
-        
+
         }
-        if(contagemErros>=7 && contagemErros<=9){
+        if (contagemErros >= 7 && contagemErros <= 9) {
             //mudar palheta quebrada 3
-        
+
             palhetaRef.innerHTML = '<img src="source/img/palheta3.png">';
-        
+
         }
-        if(contagemErros>=10 && contagemErros<=12){
+        if (contagemErros >= 10 && contagemErros <= 12) {
             //mudar palheta quebrada 4
-        
+
             palhetaRef.innerHTML = '<img src="source/img/palheta4.png">';
 
         }
-        if(contagemErros>=13 && contagemErros<=16){
+        if (contagemErros >= 13 && contagemErros <= 16) {
             //mudar palheta quebrada 5
-        
+
             palhetaRef.innerHTML = '<img src="source/img/palheta5.png">';
-        
+
         }
 
-        if(contagemErros >=17){
-           
-            //pausar jogo e mostrar tela de derrota
-            let gameover = document.getElementById("gameover");
-            gameover.style = "display:block";
+        if (contagemErros >= 17) {
+
+            this.gameOverDiv.style.display = 'block';
             this.scene.pause();
-            this.musica.stop();    
+            this.musica.stop();
+
+
         }
+
+
+    }
+    vitoria() {
+        //funcao para parar tudo e aparecer vitoria
+        console.log("funcao vitoria aqui ein");
+        this.musica.stop();
+        //criar tela vitoria
         
+        this.vitoriaDIV = document.createElement('div');
+        this.vitoriaDIV.di = 'vitoria';
+        this.vitoriaDIV.style.cssTEXT = `
+            display: block;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            z-index: 10;'
+            `
+        this.vitoriaDIV.innerHTML = `
+        <img src="source/img/Telavitoria.png" alt="vitoria" style="width:50vw; height:50vh;">
+        `
+
+
+        document.body.appendChild(this.vitoriaDIV);
         
     }
+
     create() {
 
         //x = largura y = altura(x, y)
@@ -116,12 +140,16 @@ export default class menuInicial extends Phaser.Scene {
         this.musica = this.sound.add('musica');
         // Executa algo no próximo frame
         this.time.delayedCall(2, () => {
-            
+
             this.musica.play({
                 loop: true,
                 volume: 1,
                 delay: 1.8
             });
+            //criar time event de vitória
+            setTimeout(this.vitoria.bind(this), 170000);
+            
+
         });
         // TODO:     se clicar fora pausar o jogo e música
         // FEITO: se der F5 retornar ao home.html
@@ -150,14 +178,37 @@ export default class menuInicial extends Phaser.Scene {
 
         //this.add.image(this.xVerde, 737, 'teste');
         this.missCount = [0, 0, 0, 0];
+
+
+
+
+
+
+        // Cria tela de Game Over
+        this.gameOverDiv = document.createElement('div');
+        this.gameOverDiv.id = 'perdeu';
+        this.gameOverDiv.style.cssText = `
+            display: none;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            z-index: 10;
+
+        `;
+        this.gameOverDiv.innerHTML = `
+            <img src="source/img/perdeu.png" alt="Perdeu" style="width:50vw; height:50vh;">
+        `;
+        document.body.appendChild(this.gameOverDiv);
+
+
     }
-    
-        
-    
+
+
+
 
     update() {
 
-        
+
 
         this.spawnerVerde.update();
         this.spawnerVermelho.update();
@@ -196,7 +247,7 @@ export default class menuInicial extends Phaser.Scene {
                 const distanciaVerde = Phaser.Math.Distance.Between(donutVerde.x, donutVerde.y, this.xVerde, 737);
                 //Se a
                 if (distanciaVerde <= 80) {
-                    
+
                     // Deleta o donut
                     this.spawnerVerde.donut[this.missCount[0]].destroy()
                     this.spawnerVerde.donut.splice(this.missCount[0], 1)
@@ -293,7 +344,7 @@ export default class menuInicial extends Phaser.Scene {
                     scoreRef.innerHTML = score;
                 }
             }
-            
+
         }
         if (Phaser.Input.Keyboard.JustUp(this.keyK)) {
             this.posXAzul.style = "background-image: url(source/img/teclaAzul1.png);background-repeat:no-repeat;background-size:100% 100%;";
